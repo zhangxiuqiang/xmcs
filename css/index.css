@@ -568,7 +568,8 @@ html {
 .logo {
     width: 100%;
     height: 4.5rem;
-    background: red;
+    background: url("../img/logo.png")no-repeat;
+    background-size: 100% 100%;
 }
 
 .list-pages {
@@ -607,20 +608,52 @@ html {
     margin-left: 0.3rem;
     margin-top: 0.25rem;
     float: left;
-    width: 0.6rem;
-    height: 0.6rem;
-    background: yellow;
+    width: 0.65rem;
+    height: 0.65rem;
+}
+.icons .icon:nth-child(1) li{
+    background: url("../img/in_icon.png") 0 0 no-repeat;
+    background-size: 1.5rem;
+}
+.icons .icon:nth-child(2) li{
+    background: url(../img/in_icon.png) -0.89rem 0 no-repeat;
+    background-size: 1.5rem;
+}
+.icons .icon:nth-child(3) li{
+    background: url(../img/in_icon.png) 0 -0.73rem no-repeat;
+    background-size: 1.5rem;
+}
+.icons .icon:nth-child(4) li{
+    background: url(../img/in_icon.png) -0.85rem -0.73rem no-repeat;
+    background-size: 1.5rem;
+}
+.icons .icon:nth-child(5) li{
+    background: url(../img/in_icon.png) 0 -1.43rem no-repeat;
+    background-size: 1.5rem;
+}
+.icons .icon:nth-child(6) li{
+    background: url(../img/in_icon.png) -0.83rem -1.43rem no-repeat;
+    background-size: 1.5rem;
+}
+.icons .icon:nth-child(7) li{
+    background: url(../img/in_icon.png) 0 -2.17rem no-repeat;
+    background-size: 1.5rem;
+}
+.icons .icon:nth-child(8) li{
+    background: url(../img/in_icon.png) -0.79rem -2.15rem no-repeat;
+    background-size: 1.5rem;
 }
 
 
 .list-pages .list-page li span {
     position: absolute;
-    left: 5rem;
+   right: 2rem;
     top: 0.3rem;
     display: inline-block;
     width: 0.48rem;
     height: 0.48rem;
-    background: yellow;
+    background: url(../img/in_icon.png) -0.75rem -0.6rem no-repeat;
+    background-size: 2rem;
 }
 .list-page li:nth-child(8){
     border-bottom: none;
@@ -650,7 +683,8 @@ html {
     position: absolute;
     right: 0.35rem;
     top: 0.3rem;
-    background: #000;
+    background: url(../img/icon.png) 0rem   0rem no-repeat;
+    background-size: 1rem;
     display: none;
 
 }
@@ -663,7 +697,6 @@ html {
     z-index: 10;
     position: relative;
     overflow: hidden;
-
 }
 .search_page .search input {
     border-radius: 5px;
@@ -683,7 +716,8 @@ html {
     display: block;
     width: 0.3rem;
     height: 0.3rem;
-    background: #ffff00;
+    background: url(../img/icon.png) -0.4rem -01.48rem no-repeat;
+    background-size: 1.2rem;
 }
 .search_page .search .search_i {
     position: absolute;
@@ -694,7 +728,8 @@ html {
     margin-left: 0.15rem;
     width: 0.3rem;
     height: 0.3rem;
-    background: #ffff00;
+    background: url(../img/icon.png) -0.4rem -01.48rem no-repeat;
+    background-size: 1.2rem;
 }
 .search_page .search_icon {
     height: 0.88rem;
@@ -746,13 +781,18 @@ html {
 }
 
 .search_page .search_nav li span {
-    width: 0.16rem;
-    height: 0.16rem;
-    background: red;
+    width: 0.3rem;
+    height: 0.2rem;
+    background-size: 1rem;
     display: inline-block;
     margin-left: 0.2rem;
 }
-
+._chenge{
+    background: url(../img/icon.png) -0.65rem -1.3rem no-repeat;
+}
+._chengeA{
+    background: url(../img/icon.png) -0.65rem -1.12rem no-repeat;
+}
 .search_page .search_nav ul i {
     display: block;
     float: left;
@@ -862,11 +902,18 @@ html {
 
 .infor_list .exh_infor_li_icon {
     position: absolute;
-    width: 0.26rem;
-    height: 0.26rem;
-    background: yellow;
+    width: 0.3rem;
+    height: 0.2rem;
     top: 0.66rem;
     left: 6.8rem;
+}
+.chenge{
+    background: url(../img/icon.png) -0.0rem -01.58rem no-repeat;
+    background-size: 1.2rem;
+}
+.chengeA{
+    background: url(../img/icon.png) -0.0rem -1.4rem no-repeat;
+    background-size: 1.2rem;
 }
 
 .exh_infor_li .particular_infor {
@@ -939,10 +986,15 @@ html {
 .particular_infor .collect_oppen .oppen_icon, .particular_infor .collect_oppen .collect_icon {
     width: 0.6rem;
     height: 0.6rem;
-    background: red;
     margin: 0.2rem auto;
+    background-size: 1rem;
 }
-
+.collChenge{
+    background: url(../img/icon.png) -0.35rem -0.55rem no-repeat;
+}
+.oppenChenge{
+    background: url(../img/icon.png) -0.38rem 0.05rem no-repeat;
+}
 .particular_infor .collect_oppen p {
     font-size: 0.2rem;
 }
@@ -1008,7 +1060,8 @@ html {
     display: inline-block;
     width: 0.42rem;
     height: 0.42rem;
-    background: #ffff00;
+    background: url(../img/icon.png) 0 -0.99rem no-repeat;
+    background-size: 1.2rem;
     vertical-align: middle;
 
 }
@@ -1130,12 +1183,31 @@ html {
     display: block;
     width: 0.5rem;
     height: 0.5rem;
-    background: orange;
+    background: url(../img/icon.png) -0rem -0.9rem;
+    background-size: 1.2rem;
     position: absolute;
     right: 0.3rem;
     top:0.1rem;
 }
-
+.no_collection{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 20;
+    background: rgba(0,0,0,0.5);
+    display: none;
+}
+.no_collection .no_collect{
+    width: 60%;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    font-size: 0.3rem;
+    text-align: center;
+    margin: 4rem auto;
+    background: rgba(255,255,255,0.7);
+}
 /*------------------------流行趋势页面------------------------------------------------*/
 .swiper-wrapper .trend_nav{
    position: absolute;
