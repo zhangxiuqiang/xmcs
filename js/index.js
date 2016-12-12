@@ -1,20 +1,11 @@
 window.onload=function () {
 //点击切换分页
     $('.list-page li').click(function () {
+        $('.search').css('backgroundColor', '#26adc6');
+        $('.cancel_icon').hide();
+        $('.search_icon').css('backgroundColor', '#26adc6');
         if ($(this).index() == 0) {
             window.location = "https://zhangxiuqiang.github.io/xmcs/infor.html";
-            $('.search').css('backgroundColor', '#26adc6');
-            $('.cancel_icon').hide();
-            $('.search_icon').css('backgroundColor', '#26adc6');
-            $('.classes_page').hide();
-            $('.purpose_page').hide();
-            $('.country_pages').hide();
-            $('.exhibition_page').hide();
-            $('.cancel').hide();
-            $('.search_i').hide();
-            $('.search_i1').show();
-            $('.search_show').hide();
-            $('.infor_lists').show();
         } else if ($(this).index() == 1) {
             bindCollect();
             setTimeout(function () {
@@ -46,6 +37,15 @@ window.onload=function () {
             }, 300);
             window.location = "https://zhangxiuqiang.github.io/xmcs/letter_clip.html";
         }
+        $('.classes_page').hide();
+        $('.purpose_page').hide();
+        $('.country_pages').hide();
+        $('.exhibition_page').hide();
+        $('.cancel').hide();
+        $('.search_i').hide();
+        $('.search_i1').show();
+        $('.search_show').hide();
+        $('.infor_lists').show();
     });
     var str2 = "", isa, isb, isc, isd, flag = false, total = null;
     var val = null;
