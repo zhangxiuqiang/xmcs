@@ -568,7 +568,7 @@ html {
 .logo {
     width: 100%;
     height: 4.5rem;
-    background: url("../img/logo.png")no-repeat;
+    background: url("../img/shouye-01.jpg")no-repeat;
     background-size: 100% 100%;
 }
 
@@ -612,36 +612,36 @@ html {
     height: 0.65rem;
 }
 .icons .icon:nth-child(1) li{
-    background: url("../img/in_icon.png") 0 0 no-repeat;
-    background-size: 1.5rem;
+    background: url("../img/1.png") no-repeat;
+    background-size: 100% 100%;
 }
 .icons .icon:nth-child(2) li{
-    background: url(../img/in_icon.png) -0.89rem 0 no-repeat;
-    background-size: 1.5rem;
+    background: url(../img/7.png) no-repeat;
+    background-size: 100% 100%;
 }
 .icons .icon:nth-child(3) li{
-    background: url(../img/in_icon.png) 0 -0.73rem no-repeat;
-    background-size: 1.5rem;
+    background: url(../img/5.png) no-repeat;
+    background-size: 100% 100%;
 }
 .icons .icon:nth-child(4) li{
-    background: url(../img/in_icon.png) -0.85rem -0.7rem no-repeat;
-    background-size: 1.5rem;
+    background: url(../img/8.png) no-repeat;
+    background-size: 100% 100%;
 }
 .icons .icon:nth-child(5) li{
-    background: url(../img/in_icon.png) 0 -1.43rem no-repeat;
-    background-size: 1.5rem;
+    background: url(../img/3.png) no-repeat;
+    background-size: 100% 100%;
 }
 .icons .icon:nth-child(6) li{
-    background: url(../img/in_icon.png) -0.82rem -1.43rem no-repeat;
-    background-size: 1.5rem;
+    background: url(../img/2.png) no-repeat;
+    background-size: 100% 100%;
 }
 .icons .icon:nth-child(7) li{
-    background: url(../img/in_icon.png) 0 -2.17rem no-repeat;
-    background-size: 1.5rem;
+    background: url(../img/4.png) no-repeat;
+    background-size: 100% 100%;
 }
 .icons .icon:nth-child(8) li{
-    background: url(../img/in_icon.png) -0.79rem -2.15rem no-repeat;
-    background-size: 1.5rem;
+    background: url(../img/6.png) no-repeat;
+    background-size: 100% 100%;
 }
 
 
