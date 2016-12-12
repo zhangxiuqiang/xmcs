@@ -455,6 +455,22 @@
         }
         document.documentElement.style.fontSize = n * 100 + "px";
     }(750);
+    $('.container').on('touchstart', function (e) {
+        var touch = e.originalEvent,
+                startX = touch.changedTouches[0].pageX;
+        $('.container').on('touchmove', function (e) {
+            e.preventDefault();
+            touch = e.originalEvent.touches[0] ||
+                    e.originalEvent.changedTouches[0];
+        }).on("touchend", function () {
+            if (touch.pageX - startX > 100) {
+                window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
+                e.preventDefault();
+                $('.container').off('touchmove');
+                e.stopPropagation();
+            }
+        });
+    });
     var myswp = new Swiper(".container", {
         direction: "horizontal",
         observer: true,

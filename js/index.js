@@ -18,7 +18,7 @@ window.onload=function () {
                 trend_2.refresh();
             }, 300);
             window.location = "https://zhangxiuqiang.github.io/xmcs/trend.html";
-            isColl();
+
         } else if ($(this).index() == 3) {
             setTimeout(function () {
                 synt_1.refresh();
@@ -50,23 +50,7 @@ window.onload=function () {
     });
 
 
-//滑屏跳转
-    $('.container').on('touchstart', function (e) {
-        var touch = e.originalEvent,
-            startX = touch.changedTouches[0].pageX;
-        $('.container').on('touchmove', function (e) {
-            e.preventDefault();
-            touch = e.originalEvent.touches[0] ||
-                e.originalEvent.changedTouches[0];
-        }).on("touchend", function () {
-            if (touch.pageX - startX > 100) {
-                window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
-                e.preventDefault();
-                $('.container').off('touchmove');
-                e.stopPropagation();
-            }
-        });
-    });
+
     var str2 = "", isa, isb, isc, isd, flag = false, total = null;
 
     var val = null;
@@ -602,6 +586,7 @@ window.onload=function () {
         }
         $('.favorite_lists').append(strc);
         strc = ''
+        isColl();
     }
 
     bindCollect();
