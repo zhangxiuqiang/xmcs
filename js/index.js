@@ -4,12 +4,22 @@ $(document).ready(function () {
         $('.cancel_icon').hide();
         $('.search_icon').css('backgroundColor', '#26adc6');
         if ($(this).index() == 0) {
+            $('.classes_page').hide();
+            $('.purpose_page').hide();
+            $('.country_pages').hide();
+            $('.exhibition_page').hide();
+            $('.cancel').hide();
+            $('.search_i').hide();
+            $('.search_i1').show();
+            $('.search_show').hide();
+            $('.infor_lists').show();
             window.location = "https://zhangxiuqiang.github.io/xmcs/infor.html";
         } else if ($(this).index() == 1) {
             bindCollect();
             setTimeout(function () {
                 myScroll7.refresh();
             }, 300);
+            isColl();
             // window.location = "http://localhost:63342/.idea/xmcs/favorite.html";
             window.location = "https://zhangxiuqiang.github.io/xmcs/favorite.html";
         } else if ($(this).index() == 2) {
@@ -572,7 +582,6 @@ $(document).ready(function () {
         }
         $('.favorite_lists').append(strc);
         strc = ''
-        isColl();
     }
 
     bindCollect();
@@ -582,7 +591,6 @@ $(document).ready(function () {
 //点击删除收藏
     $('.favorite_lists').on('click', '.delete_c', function () {
         myScroll7.refresh();
-
         var curId = $(this).parent().parent().attr('crmId');
         var deleArr = getcollStor();
         for (var t = 0; t < deleArr.length; t++) {
@@ -593,7 +601,7 @@ $(document).ready(function () {
                 bindCollect();
                 $(this).parent().parent().remove();
                 isColl();
-                break;
+               return;
             }
         }
 
