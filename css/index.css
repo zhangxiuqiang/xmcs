@@ -624,7 +624,7 @@ html {
     background-size: 1.5rem;
 }
 .icons .icon:nth-child(4) li{
-    background: url(../img/in_icon.png) -0.85rem -0.73rem no-repeat;
+    background: url(../img/in_icon.png) -0.85rem -0.7rem no-repeat;
     background-size: 1.5rem;
 }
 .icons .icon:nth-child(5) li{
@@ -908,7 +908,7 @@ html {
     left: 6.8rem;
 }
 .chenge{
-    background: url(../img/icon.png) -0.0rem -01.58rem no-repeat;
+    background: url(../img/icon.png) -0.0rem -01.65rem no-repeat;
     background-size: 1.2rem;
 }
 .chengeA{
@@ -987,13 +987,13 @@ html {
     width: 0.6rem;
     height: 0.6rem;
     margin: 0.2rem auto;
-    background-size: 1rem;
+    background-size: 0.9rem;
 }
 .collChenge{
-    background: url(../img/icon.png) -0.35rem -0.55rem no-repeat;
+    background: url(../img/icon.png) -0.35rem -0.49rem no-repeat;
 }
 .oppenChenge{
-    background: url(../img/icon.png) -0.38rem 0.05rem no-repeat;
+    background: url(../img/icon.png) -0.365rem 0.056rem no-repeat;
 }
 .particular_infor .collect_oppen p {
     font-size: 0.2rem;
