@@ -19,6 +19,7 @@ window.onload=function () {
             }, 300);
             window.location = "https://zhangxiuqiang.github.io/xmcs/trend.html";
 
+
         } else if ($(this).index() == 3) {
             setTimeout(function () {
                 synt_1.refresh();

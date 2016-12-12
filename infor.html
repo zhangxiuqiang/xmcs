@@ -6,8 +6,15 @@
           content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
 
     <title>iScroll demo: 2d scroll</title>
-    <script type="text/javascript" src="js/iscroll.js"></script>
-    <script type="text/javascript">
+    <link rel="stylesheet" charset="utf-8" type="text/css" href="css/reset.min.css">
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/swiper-3.4.0.min.css">
+    <link rel="stylesheet" charset="utf-8" type="text/css" href="css/index.css">
+
+    <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script charset="utf-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/iscroll.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" charset="ut">
         var myScroll, myScroll2, myScroll3, myScroll4, myScroll5, myScroll6;
         function loaded() {
             myScroll = new IScroll('#wrapper', {freeScroll: true, click: true,checkDOMChange:true});
@@ -18,12 +25,6 @@
             myScroll6 = new IScroll('#clas_page', {freeScroll: true, click: true,checkDOMChange:true});
         }
     </script>
-    <link rel="stylesheet" charset="utf-8" type="text/css" href="css/reset.min.css">
-    <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/swiper-3.4.0.min.css">
-    <link rel="stylesheet" charset="utf-8" type="text/css" href="css/index.css">
-    <script charset="utf-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
-    <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
-    <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
 </head>
 <body onload="loaded()">
 <div class="container swiper-container">
@@ -463,7 +464,7 @@
             touch = e.originalEvent.touches[0] ||
                     e.originalEvent.changedTouches[0];
         }).on("touchend", function () {
-            if (touch.pageX - startX > 100) {
+            if (touch.pageX - startX > 200) {
                 window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
                 e.preventDefault();
                 $('.container').off('touchmove');
