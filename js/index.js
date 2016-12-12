@@ -1,5 +1,4 @@
-window.onload=function () {
-//点击切换分页
+
     $('.list-page li').click(function () {
         $('.search').css('backgroundColor', '#26adc6');
         $('.cancel_icon').hide();
@@ -614,7 +613,6 @@ window.onload=function () {
         }
 
     }
-}
 
 
 
