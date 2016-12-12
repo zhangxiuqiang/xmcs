@@ -1,32 +1,22 @@
-window.onload=function () {
-//点击切换分页
+window.onload = function () {
     $('.list-page li').click(function () {
         $('.search').css('backgroundColor', '#26adc6');
         $('.cancel_icon').hide();
         $('.search_icon').css('backgroundColor', '#26adc6');
         if ($(this).index() == 0) {
             window.location = "https://zhangxiuqiang.github.io/xmcs/infor.html";
-            $('.classes_page').hide();
-            $('.purpose_page').hide();
-            $('.country_pages').hide();
-            $('.exhibition_page').hide();
-            $('.cancel').hide();
-            $('.search_i').hide();
-            $('.search_i1').show();
-            $('.search_show').hide();
-            $('.infor_lists').show();
         } else if ($(this).index() == 1) {
             bindCollect();
             setTimeout(function () {
                 myScroll7.refresh();
             }, 300);
-            window.location = "https://zhangxiuqiang.github.io/xmcs/favorite.html";
+            window.location = "http://localhost:63342/.idea/xmcs/favorite.html";
         } else if ($(this).index() == 2) {
             setTimeout(function () {
                 trend_1.refresh();
                 trend_2.refresh();
             }, 300);
-            window.location = "https://zhangxiuqiang.github.io/xmcs/trend.html";
+            window.location = "http://localhost:63342/.idea/xmcs/trend.html";
         } else if ($(this).index() == 3) {
             setTimeout(function () {
                 synt_1.refresh();
@@ -133,6 +123,7 @@ window.onload=function () {
         $('.infor_list').append(str);
         str = "";
     }
+
     bindHTML();
 
 //搜素历史
@@ -146,11 +137,13 @@ window.onload=function () {
         }
         return loc_history
     }
+
     hisStoshow();
     function clearSpace(val) {
         total = val.replace(/(^\s+)|(\s+$)/g, "");
         return total
     }
+
     function sethisStos(a) {
         if (clearSpace(a)) {
             var search = hisStoshow();
@@ -160,12 +153,13 @@ window.onload=function () {
             }
         }
     }
+
     function history() {
         var len = hisStoshow();
         for (var i = 0; i < len.length; i++) {
             str2 += '<li class="history_arr">' + len[i] + '</li>';
         }
-        $('.history_list')[0].innerHTML=str2;
+        $('.history_list')[0].innerHTML = str2;
         str2 = "";
     }
 
@@ -311,7 +305,7 @@ window.onload=function () {
             $('.cancel').show();
         }
     });
-    var flg=1;
+    var flg = 1;
     $('#history_list').on('click', 'li', function () {
         $('.search_inp')[0].value = this.innerHTML;
         $(".cancel").hide();
@@ -325,10 +319,10 @@ window.onload=function () {
 
         $(this).on('click', function (event) {
             $(this).children('.particular_infor').toggle();
-            flg =  $(this).children('.particular_infor').css('display')
-            if(flg=="none"){
+            flg = $(this).children('.particular_infor').css('display')
+            if (flg == "none") {
                 $('.exh_infor_li').find('.exh_infor_li_icon').addClass("chenge").removeClass('chengeA');
-            }else {
+            } else {
                 $('.exh_infor_li').find('.exh_infor_li_icon').addClass("chenge");
                 $(this).find('.exh_infor_li_icon').removeClass('chenge').addClass('chengeA');
             }
@@ -356,8 +350,10 @@ window.onload=function () {
             $('#wrapper').css('top', "0.88rem").hide();
             $(this).find('span').removeClass('_chenge').addClass('_chengeA');
             $('.use').find('span').removeClass('_chengeA').addClass('_chenge');
-            $('.gallery').find('span').removeClass('_chengeA').addClass('_chenge');;
-            $('.countrys').find('span').removeClass('_chengeA').addClass('_chenge');;
+            $('.gallery').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
+            $('.countrys').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
         } else {
             $('.classes_page').hide();
             $(this).find('span').removeClass('_chengeA').addClass('_chenge');
@@ -375,8 +371,10 @@ window.onload=function () {
             $('#wrapper').css('top', "0.88rem").hide();
             $(this).find('span').removeClass('_chenge').addClass('_chengeA');
             $('.category_s').find('span').removeClass('_chengeA').addClass('_chenge');
-            $('.gallery').find('span').removeClass('_chengeA').addClass('_chenge');;
-            $('.countrys').find('span').removeClass('_chengeA').addClass('_chenge');;
+            $('.gallery').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
+            $('.countrys').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
         } else {
             $('.purpose_page').hide();
             $('#wrapper').css('top', "1.76rem").show();
@@ -396,8 +394,10 @@ window.onload=function () {
             $('#wrapper').css('top', "0.88rem").hide();
             $(this).find('span').removeClass('_chenge').addClass('_chengeA');
             $('.category_s').find('span').removeClass('_chengeA').addClass('_chenge');
-            $('.use').find('span').removeClass('_chengeA').addClass('_chenge');;
-            $('.countrys').find('span').removeClass('_chengeA').addClass('_chenge');;
+            $('.use').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
+            $('.countrys').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
         } else {
             $('.exhibition_page').hide();
             $('#wrapper').css('top', "1.76rem").show();
@@ -416,8 +416,10 @@ window.onload=function () {
             $('#wrapper').css('top', "0.88rem").hide();
             $(this).find('span').removeClass('_chenge').addClass('_chengeA');
             $('.category_s').find('span').removeClass('_chengeA').addClass('_chenge');
-            $('.use').find('span').removeClass('_chengeA').addClass('_chenge');;
-            $('.gallery').find('span').removeClass('_chengeA').addClass('_chenge');;
+            $('.use').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
+            $('.gallery').find('span').removeClass('_chengeA').addClass('_chenge');
+            ;
         } else {
             $('.country_pages').hide();
             $('#wrapper').css('top', "1.76rem").show();
@@ -533,8 +535,9 @@ window.onload=function () {
             }
         }
     }
-   $('.collect').find('.collect_icon').addClass('collChenge');
-   $('.oppen').find('.oppen_icon').addClass('oppenChenge');
+
+    $('.collect').find('.collect_icon').addClass('collChenge');
+    $('.oppen').find('.oppen_icon').addClass('oppenChenge');
     $('.collect').on('click', function (event) {
         myScroll.refresh();
         event.stopPropagation();
@@ -586,7 +589,6 @@ window.onload=function () {
     bindCollect();
 
 
-
 //点击删除收藏
     $('.favorite_lists').on('click', '.delete_c', function () {
         myScroll7.refresh();
@@ -607,10 +609,10 @@ window.onload=function () {
 
     });
     function isColl() {
-        if($('.favorite_lists').children('li')[0]==undefined){
+        if ($('.favorite_lists').children('li')[0] == undefined) {
 
             $('.no_collection').show();
-        }else {
+        } else {
             $('.no_collection').hide();
         }
 
