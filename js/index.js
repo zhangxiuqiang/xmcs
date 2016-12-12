@@ -1,6 +1,49 @@
 window.onload=function () {
 //点击切换分页
+    $('.list-page li').click(function () {
+        $('.search_icon').css('backgroundColor', '#26adc6');
+        if ($(this).index() == 0) {
+            window.location = "https://zhangxiuqiang.github.io/xmcs/infor.html";
+            $('.cancel').hide();
 
+        } else if ($(this).index() == 1) {
+            bindCollect();
+            setTimeout(function () {
+                myScroll7.refresh();
+            }, 300);
+            window.location = "https://zhangxiuqiang.github.io/xmcs/favorite.html";
+        } else if ($(this).index() == 2) {
+            setTimeout(function () {
+                trend_1.refresh();
+                trend_2.refresh();
+            }, 300);
+            window.location = "https://zhangxiuqiang.github.io/xmcs/trend.html";
+        } else if ($(this).index() == 3) {
+            setTimeout(function () {
+                synt_1.refresh();
+                synt_2.refresh();
+            }, 300);
+            window.location = "https://zhangxiuqiang.github.io/xmcs/synthesis.html";
+        } else if ($(this).index() == 4) {
+            setTimeout(function () {
+                itiner_1.refresh();
+                itiner_2.refresh();
+            }, 300);
+            window.location = "https://zhangxiuqiang.github.io/xmcs/itinerary.html";
+        } else if ($(this).index() == 7) {
+            setTimeout(function () {
+                clip_1.refresh();
+                clip_2.refresh();
+            }, 300);
+            window.location = "https://zhangxiuqiang.github.io/xmcs/letter_clip.html";
+        }
+        $('.search_i').hide();
+        $('.search_i1').show();
+        $('.search_show').hide();
+        $('.infor_lists').show();
+        $('.search').css('backgroundColor', '#26adc6');
+        $('.cancel_icon').hide();
+    });
     var str2 = "", isa, isb, isc, isd, flag = false, total = null;
     var val = null;
     var height = null;
