@@ -59,7 +59,7 @@ window.onload=function () {
             touch = e.originalEvent.touches[0] ||
                 e.originalEvent.changedTouches[0];
         }).on("touchend", function () {
-            if (touch.pageX - startX > 400) {
+            if (touch.pageX - startX > 100) {
                 window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
                 e.preventDefault();
                 $('.container').off('touchmove');

@@ -140,7 +140,7 @@
                     e.originalEvent.changedTouches[0];
         }).on("touchend",function () {
             e.preventDefault();
-            if (touch.pageX - startX > 350) {
+            if (touch.pageX - startX > 100) {
                 $("._clip").off('touchmove');
                 window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
                 e.preventDefault();
