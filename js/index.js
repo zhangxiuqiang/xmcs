@@ -6,15 +6,6 @@ window.onload=function () {
         $('.search_icon').css('backgroundColor', '#26adc6');
         if ($(this).index() == 0) {
             window.location = "https://zhangxiuqiang.github.io/xmcs/infor.html";
-            $('.classes_page').hide();
-            $('.purpose_page').hide();
-            $('.country_pages').hide();
-            $('.exhibition_page').hide();
-            $('.cancel').hide();
-            $('.search_i').hide();
-            $('.search_i1').show();
-            $('.search_show').hide();
-            $('.infor_lists').show();
         } else if ($(this).index() == 1) {
             bindCollect();
             setTimeout(function () {
@@ -73,7 +64,15 @@ window.onload=function () {
     localStorage.setItem('infor', JSON.stringify(data));
     var arr = JSON.parse(localStorage.getItem('infor'));
 
-
+    // $('.classes_page').hide();
+    // $('.purpose_page').hide();
+    // $('.country_pages').hide();
+    // $('.exhibition_page').hide();
+    // $('.cancel').hide();
+    // $('.search_i').hide();
+    // $('.search_i1').show();
+    // $('.search_show').hide();
+    // $('.infor_lists').show();
 // 绑定 infor页面数据
     function bindHTML() {
         var str = "";
