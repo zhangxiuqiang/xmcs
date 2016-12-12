@@ -5,13 +5,16 @@
         $('.search_icon').css('backgroundColor', '#26adc6');
         if ($(this).index() == 0) {
             window.location = "https://zhangxiuqiang.github.io/xmcs/infor.html";
+            alert(1)
         } else if ($(this).index() == 1) {
+            alert(2)
             bindCollect();
             setTimeout(function () {
                 myScroll7.refresh();
             }, 300);
             window.location = "https://zhangxiuqiang.github.io/xmcs/favorite.html";
         } else if ($(this).index() == 2) {
+            alert(3)
             setTimeout(function () {
                 trend_1.refresh();
                 trend_2.refresh();
