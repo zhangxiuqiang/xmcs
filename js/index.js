@@ -1,6 +1,6 @@
 
 
- var abcd=false;
+var abcd=false;
 $(document).ready(function () {
     if(!abcd){
         abcd=true;
@@ -20,19 +20,17 @@ $(document).ready(function () {
                 $('.infor_lists').show();
                 window.location = "https://zhangxiuqiang.github.io/xmcs/infor.html";
             } else if ($(this).index() == 1) {
-                // bindCollect();
+                bindCollect();
                 setTimeout(function () {
                     myScroll7.refresh();
                 }, 300);
-                isColl();
-                // window.location = "http://localhost:63342/.idea/xmcs/favorite.html";
                 window.location = "https://zhangxiuqiang.github.io/xmcs/favorite.html";
+                isColl();
             } else if ($(this).index() == 2) {
                 setTimeout(function () {
                     trend_1.refresh();
                     trend_2.refresh();
                 }, 300);
-                // window.location = "http://localhost:63342/.idea/xmcs/trend.html";
                 window.location = "https://zhangxiuqiang.github.io/xmcs/trend.html";
             } else if ($(this).index() == 3) {
                 setTimeout(function () {
@@ -80,8 +78,6 @@ $(document).ready(function () {
         }
         localStorage.setItem('infor', JSON.stringify(data));
         var arr = JSON.parse(localStorage.getItem('infor'));
-
-
 // 绑定 infor页面数据
         function bindHTML() {
             var str = "";
@@ -141,7 +137,6 @@ $(document).ready(function () {
             str = "";
         }
         bindHTML();
-
 //搜素历史
         function hisStoshow() {
             if (localStorage.getItem('hisArr')) {
@@ -175,17 +170,11 @@ $(document).ready(function () {
             $('.history_list')[0].innerHTML=str2;
             str2 = "";
         }
-
 // 设置隐藏页面
         $('.exhibition_page').hide();
-
         $('.country_pages').hide();
-
         $('.classes_page').hide();
-
         $('.purpose_page').hide();
-
-
 // infor dom树发生改变后刷新页面
         function refresh() {
             setTimeout(function () {
@@ -197,10 +186,8 @@ $(document).ready(function () {
                 myScroll6.refresh();
             }, 300);
         }
-
 //infor 部分
 //click 事件区
-
         $('.search_icon').on("click", function (event) {
             $('#wrapper').css('top', "1.76rem");
             var sd = $('.search_inp').val();
@@ -263,7 +250,6 @@ $(document).ready(function () {
             }
             event.stopPropagation();
         });
-
         $('input[type=text]').on("input oninput", function () {
             $('.search').css('backgroundColor', '#c9c8ce');
             myScroll.refresh();
@@ -273,17 +259,14 @@ $(document).ready(function () {
                 $('.cancel').hide();
             }
         });
-
         $('.clear_history').on('click', function (event) {
             $('.onclear_show').show();
             event.stopPropagation();
         });
-
         $('.cancel_s').on('click', function () {
             $('.onclear_show').hide();
 
         });
-
         $('.ensure').on('click', function () {
             $('.history_list li').remove();
             $('.onclear_show').hide();
@@ -291,7 +274,6 @@ $(document).ready(function () {
             localStorage.setItem('hisArr', JSON.stringify([]));
 
         });
-
         $('.cancel').on('click', function (event) {
             $('#wrapper').css('top', "0.88rem").show();
             $('#serhShow').hide();
@@ -309,7 +291,6 @@ $(document).ready(function () {
             $('.cancel_icon').hide();
             event.stopPropagation();
         });
-
         $('.cancel_icon').on('click', function () {
             val = $('.search_inp').val();
             var tmp = clearSpace(val);
@@ -323,7 +304,6 @@ $(document).ready(function () {
             $('.search_inp')[0].value = this.innerHTML;
             $(".cancel").hide();
         });
-
         $('.exh_infor_li').find('.exh_infor_li_icon').addClass("chenge");
         $('.exh_infor_li').on('click', function (event) {
             $('.exh_infor_li .particular_infor').hide();
@@ -371,7 +351,6 @@ $(document).ready(function () {
                 $('#wrapper').css('top', "1.76rem").show();
             }
         });
-
         $('.use').on('click', function () {
             isb = $('.purpose_page').is(":hidden") ? true : false;
             if (isb) {
@@ -391,7 +370,6 @@ $(document).ready(function () {
             }
             refresh();
         });
-
         $('.gallery').on('click', function () {
             isc = $('.exhibition_page').is(":hidden") ? true : false;
             refresh();
@@ -411,7 +389,6 @@ $(document).ready(function () {
                 $(this).find('span').removeClass('_chengeA').addClass('_chenge');
             }
         });
-
         $('.countrys').on('click', function () {
             isd = $('.country_pages').is(":hidden") ? true : false;
             refresh();
@@ -431,64 +408,50 @@ $(document).ready(function () {
                 $(this).find('span').removeClass('_chengeA').addClass('_chenge');
             }
         });
-
         $('.classes_page .checked_all').on('click', function () {
             $('.material_list').find('i').show();
             $('.lining_list').find('i').show();
         });
-
         $('.classes_page .remove_all').on('click', function () {
             $('.material_list').find('i').hide();
             $('.lining_list').find('i').hide();
         });
-
         $('.material_list li').on('click', function () {
             $(this).children("i").toggle();
         });
-
         $('.lining_list li').on('click', function () {
             $(this).children("i").toggle();
         });
-
         $('.purpose_page .checked_all').on('click', function () {
             $('.purpose_list').find('i').show();
         });
-
         $('.purpose_page .remove_all').on('click', function () {
             $('.purpose_list').find('i').hide();
         });
-
         $('.purpose_list li').on('click', function () {
             $(this).children("i").toggle();
         });
-
         $('.country_pages .checked_all').on('click', function () {
             $('.country_lists').find('i').show();
         });
-
         $('.country_pages .remove_all').on('click', function () {
             $('.country_lists').find('i').hide();
         });
-
         $('.country_lists li').on('click', function () {
             $(this).children("i").toggle();
         });
-
         $('.search_infor_nav li').on('click', function () {
             $('.search_inp')[0].value = $(this).html();
             $('#wrapper').css('top', "0.88rem").show();
             $('.search_show').hide();
             $('.infor_lists').show();
         });
-
         $('.exhibition_page .checked_all').on('click', function () {
             $('.exhibition_lists').find('i').show();
         });
-
         $('.exhibition_page .remove_all').on('click', function () {
             $('.exhibition_lists').find('i').hide();
         });
-
         $('.exhibition_lists li').on('click', function () {
             $(this).children("i").toggle();
         });
@@ -584,12 +547,10 @@ $(document).ready(function () {
                 strc += '</ul>';
                 strc += '</li>';
             }
-            console.log(strc)
             $('.favorite_lists').append(strc);
             strc = ''
             return;
         }
-
 //点击删除收藏
         $('.favorite_lists').on('click', '.delete_c', function (event) {
             myScroll7.refresh();
