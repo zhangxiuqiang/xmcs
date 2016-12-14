@@ -2,6 +2,36 @@
 
 var abcd=false;
 $(document).ready(function () {
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+    function hengshuping() {
+        if (window.orientation == 90 || window.orientation == -90) {
+           refresh();
+          setTimeout(function () {
+              myScroll7.refresh();
+              trend_1.refresh();
+              trend_2.refresh();
+              synt_1.refresh();
+              synt_2.refresh();
+              itiner_1.refresh();
+              itiner_2.refresh();
+              clip_1.refresh();
+              clip_2.refresh();
+          },0)
+        } else if(window.orientation == 0 || window.orientation == 180){
+            refresh();
+            setTimeout(function () {
+                myScroll7.refresh();
+                trend_1.refresh();
+                trend_2.refresh();
+                synt_1.refresh();
+                synt_2.refresh();
+                itiner_1.refresh();
+                itiner_2.refresh();
+                clip_1.refresh();
+                clip_2.refresh();
+            },0)
+        }
+    }
     if(!abcd){
         abcd=true;
         $('.list-page li').click(function () {
