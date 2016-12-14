@@ -24,8 +24,8 @@ $(document).ready(function () {
                 setTimeout(function () {
                     myScroll7.refresh();
                 }, 300);
-                window.location = "https://zhangxiuqiang.github.io/xmcs/favorite.html";
                 isColl();
+                window.location = "https://zhangxiuqiang.github.io/xmcs/favorite.html";
             } else if ($(this).index() == 2) {
                 setTimeout(function () {
                     trend_1.refresh();
@@ -93,7 +93,6 @@ $(document).ready(function () {
                 str += '<span style="background:url(' + curDate["Img"] + ')"></span>';
                 str += '</div>';
                 str += '<ul class="particular_list">';
-                str += '<li class="particular_country">' + curDate["country"] + '</li>';
                 str += '<li>';
                 str += '<span> 产品类别 </span>';
                 str += '<p class="category">' + curDate["species"] + '</p>';
