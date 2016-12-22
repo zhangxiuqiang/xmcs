@@ -10,14 +10,28 @@
     <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/index.css">
     <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/swiper-3.4.0.min.css">
     <script charset="utf-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
-    <script charset="utf-8" type="text/javascript" src="js/iscroll.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/iscroll-probe.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" charset="utf-8">
         var myScroll8;
         function loaded() {
-            myScroll8 = new IScroll('#int_pages', {freeScroll: true, click: true});
-        }
+            myScroll8 = new IScroll('#int_pages', {freeScroll: true, click: true,probeType: 3});
+            var _Y=$(document.body)[0].clientHeight;
+            $(".footer").css('display','none');
+                myScroll8.on('scroll',function () {
+                    var  Y = $('._y').offset().top;
+                    var  H = $('._y').height();
+                    var  _H = $('.footer').height();
+                    myScroll8.y
+                    if(H+Y<_Y){
+                        var curH=_Y-Y-H;
+                        $(".footer").slideDown(2000)
+                    }else{
+                        $(".footer").slideUp(300)
+                    }
+                })
+            }
     </script>
     <title>intertextite</title>
 </head>
@@ -84,13 +98,14 @@
                             快速分享
                             <span></span>
                         </li>
-                        <li class="list-page-li font">
+                        <li class="list-page-li font _y">
                             我的票夹
                             <span></span>
                         </li>
                     </ul>
                     <div class="footer">
-
+                         <p>  Copyright@ 2017 intertextile Shanghai apparel fabrics </p>
+                        <p>Powered by SoSee</p>
                     </div>
                 </div>
             </div>
