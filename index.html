@@ -17,20 +17,6 @@
         var myScroll8;
         function loaded() {
             myScroll8 = new IScroll('#int_pages', {freeScroll: true, click: true,probeType: 3});
-            var _Y=$(document.body)[0].clientHeight;
-            $(".footer").css('display','none');
-                myScroll8.on('scroll',function () {
-                    var  Y = $('._y').offset().top;
-                    var  H = $('._y').height();
-                    var  _H = $('.footer').height();
-                    myScroll8.y
-                    if(H+Y<_Y){
-                        var curH=_Y-Y-H;
-                        $(".footer").slideDown(2000)
-                    }else{
-                        $(".footer").slideUp(300)
-                    }
-                })
             }
     </script>
     <title>intertextite</title>
