@@ -4,16 +4,6 @@ var abcd = false;
 $(document).ready(function () {
     if (!abcd) {
         abcd = true;
-        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
-        try {
-            function hengshuping() {
-                if (window.orientation == 90 || window.orientation == -90) {
-                    window.location.reload();
-                } else if (window.orientation == 0 || window.orientation == 180) {
-                    window.location.reload();
-                }
-            }
-        } catch (e) {}
         $('.list-page li').click(function () {
             $('.search').css('backgroundColor', '#26adc6');
             $('.cancel_icon').hide();
@@ -894,7 +884,10 @@ $(document).ready(function () {
             layout.refresh();
             $('.p5_rotL').css({'width':"100%","height":"100%"})
         })
-
+        $('.P5map').on('tap',function () {
+            $('.P5map').hide();
+            $('.p5_rot').hide();
+        });
         $(".p5_rot img").on('doubletap',function(){
             $('.P5map').hide();
             $('.p5_rot').hide();
