@@ -10,7 +10,6 @@
     <link rel="stylesheet" charset="utf-8" type="text/css" href="css/reset.min.css">
     <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/swiper-3.4.0.min.css">
     <link rel="stylesheet" charset="utf-8" type="text/css" href="css/index.css">
-
     <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script charset="utf-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/iscroll-probe.js"></script>
@@ -18,13 +17,19 @@
     <script type="text/javascript" charset="utf-8">
         var myScroll, myScroll2, myScroll3, myScroll4, myScroll5, myScroll6;
         function loaded() {
-            myScroll = new IScroll('#wrapper', {freeScroll: true, click: true,checkDOMChange:true});
+            myScroll = new IScroll('#wrapper', {freeScroll: true, click: true,checkDOMChange:true,probeType: 3,useTransition: true });
             myScroll2 = new IScroll('#serhShow', {freeScroll: true, click: true,checkDOMChange:true});
             myScroll3 = new IScroll('#exh_page', {freeScroll: true, click: true,checkDOMChange:true});
             myScroll4 = new IScroll('#coun_page', {freeScroll: true, click: true,checkDOMChange:true});
             myScroll5 = new IScroll('#pose_page', {freeScroll: true, click: true,checkDOMChange:true});
             myScroll6 = new IScroll('#clas_page', {freeScroll: true, click: true,checkDOMChange:true});
+            var CY , OH;
+            $('.infor_list').on('click', '.exh_infor_li', function (event) {
+                CY =$('#wrapper')[0].clientHeight;
+                myScroll.scrollToElement(this, 0, 0, 0, true)
+            })
         }
+
     </script>
 </head>
 <body onload="loaded()">
@@ -41,8 +46,8 @@
             </div>
             <div class="search_icon">
                 筛选
-                <span class="cancel"> 取消</span>
             </div>
+            <span class="cancel"> 取消</span>
         </div>
         <div class="search_nav" id="search_nav">
             <ul>
@@ -218,5 +223,21 @@
         threshold: 100
     });
     myswp.lockSwipeToNext();
+
+
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+    try {
+        function hengshuping() {
+            if (window.orientation == 90 || window.orientation == -90) {
+                window.location.reload();
+            } else if (window.orientation == 0 || window.orientation == 180) {
+                window.location.reload();
+            }
+        }
+    } catch (e) {
+
+    }
+
+
 </script>
 </html>

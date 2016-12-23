@@ -13,10 +13,7 @@ $(document).ready(function () {
                     window.location.reload();
                 }
             }
-        } catch (e) {
-
-        }
-
+        } catch (e) {}
         $('.list-page li').click(function () {
             $('.search').css('backgroundColor', '#26adc6');
             $('.cancel_icon').hide();
@@ -57,6 +54,12 @@ $(document).ready(function () {
                     itiner_2.refresh();
                 }, 300);
                 window.location = "https://zhangxiuqiang.github.io/xmcs/itinerary.html";
+            } else if ($(this).index() == 5) {
+                setTimeout(function () {
+                    itiner_1.refresh();
+                    itiner_2.refresh();
+                }, 300);
+                window.location = "https://zhangxiuqiang.github.io/xmcs/layout.html";
             } else if ($(this).index() == 7) {
                 setTimeout(function () {
                     clip_1.refresh();
@@ -75,9 +78,11 @@ $(document).ready(function () {
         var _Array = [];
         var arr_1 = [], arr_2 = [], arr_3 = [];
         var _arr = [];
+        var is_ary = [];
+        var flg = 1;
 //创建假数据
         var data = [];
-        var fg=true;
+        var fg = true;
         function getData() {
             var xml = new XMLHttpRequest,
                 xhr = new XMLHttpRequest();
@@ -180,17 +185,22 @@ $(document).ready(function () {
             $('.country_lists').find('i').hide();
             $('.purpose_list').find('i').hide();
             str = "";
-           var list= $('.infor_list li');
-            if(!list.length){
-               $('.empty').show();
-            }else{
+            var list = $('.infor_list li');
+            if (!list.length) {
+                if($('.search_nav').is(':hidden')){
+                    $('.empty').css('top',"0.88rem").show();
+                }else {
+                    $('.empty').css('top',"1.76rem").show();
+                }
+            } else {
                 $('.empty').hide();
             }
         }
-         $('.empty').on('click',function () {
-             $('.empty').hide();
-             bindHTML(data);
-         })
+
+        $('.empty').on('click', function () {
+            $('.empty').hide();
+            bindHTML(data);
+        })
         function bindCategory() {
             var _str = '';
             for (var key in seaData) {
@@ -244,11 +254,7 @@ $(document).ready(function () {
         bindGall();
         bindCount();
         bindCategory();
-
-
 //搜素历史
-
-
         function hisStoshow() {
             if (localStorage.getItem('hisArr')) {
                 loc_history = JSON.parse(localStorage.getItem('hisArr'));
@@ -259,13 +265,11 @@ $(document).ready(function () {
             }
             return loc_history
         }
-
         hisStoshow();
         function clearSpace(val) {
             total = val.replace(/(^\s+)|(\s+$)/g, "");
             return total
         }
-
         function sethisStos(a) {
             if (clearSpace(a)) {
                 var search = hisStoshow();
@@ -275,7 +279,6 @@ $(document).ready(function () {
                 }
             }
         }
-
         function history() {
             var len = hisStoshow();
             for (var i = 0; i < len.length; i++) {
@@ -284,7 +287,6 @@ $(document).ready(function () {
             $('.history_list')[0].innerHTML = str2;
             str2 = "";
         }
-
 // 设置隐藏页面
         $('.exhibition_page').hide();
         $('.country_pages').hide();
@@ -301,10 +303,10 @@ $(document).ready(function () {
                 myScroll6.refresh();
             }, 300);
         }
-        $.fn.isHedde=function () {
-            for(var i=0;i<this.length;i++){
-                if (!$(this[i]).is(":hidden")){
-                    fg=false;
+        $.fn.isHedde = function () {
+            for (var i = 0; i < this.length; i++) {
+                if (!$(this[i]).is(":hidden")) {
+                    fg = false;
                 }
             }
         }
@@ -329,20 +331,30 @@ $(document).ready(function () {
             bindHTML(_arr);
         }
         //搜索后再次点击重新绑定
+      try {
+          if (_arr.length) {
+              $('.search_icon')[0].innerHTML = '';
+              $('.search_icon').html('确定');
+          } else {
+              $('.search_icon')[0].innerHTML = '';
+              $('.search_icon').html('筛选');
+          }
+      }catch(e) {}
         function refreshInfor() {
-            fg=true;
-            var arrI=$('.lining_list').find('i');
-            var arrI1=$('.lining_list').find('i');
-            var arrI2=$('.lining_list').find('i');
-            var arrI3=$('.lining_list').find('i');
+            fg = true;
+            var arrI = $('.lining_list').find('i');
+            var arrI1 = $('.lining_list').find('i');
+            var arrI2 = $('.lining_list').find('i');
+            var arrI3 = $('.lining_list').find('i');
             arrI.isHedde();
             arrI1.isHedde();
             arrI2.isHedde();
             arrI3.isHedde();
-            if(fg){
+            if (fg) {
                 bindHTML(data)
             }
         }
+
 //infor 部分
 //click 事件区
         function bindPages(s) {
@@ -377,6 +389,10 @@ $(document).ready(function () {
             }
         }
         $('.search_icon').on("click", function (event) {
+            if($(this).text()=="确定"){
+                $('.search_icon')[0].innerHTML='';
+                $('.search_icon').html('筛选');
+            }
             flog = false
             $('.search_nav li').removeClass('cgengebg');
             var lin = $('.lining_list').find('i');
@@ -449,6 +465,7 @@ $(document).ready(function () {
             }
         });
         $('.search_inp').on('focus', function (event) {
+            $('.empty').hide();
             $('#wrapper').css('top', "0.88rem").hide();
             $('#serhShow').show();
             history();
@@ -529,7 +546,7 @@ $(document).ready(function () {
                 $('.cancel').show();
             }
         });
-        var flg = 1;
+
         $('#history_list').on('click', 'li', function () {
             $('.search_inp')[0].value = this.innerHTML;
             $(".cancel").hide();
@@ -539,7 +556,6 @@ $(document).ready(function () {
             $('.exh_infor_li .particular_infor').hide();
             $(this).children('.particular_infor').show();
             $(this).find('.exh_infor_li_icon').removeClass('chenge').addClass('chengeA');
-
             $(this).on('click', function (event) {
                 $(this).children('.particular_infor').toggle();
                 flg = $(this).children('.particular_infor').css('display')
@@ -562,7 +578,6 @@ $(document).ready(function () {
         $('.use').find('span').addClass('_chenge');
         $('.gallery').find('span').addClass('_chenge');
         $('.countrys').find('span').addClass('_chenge');
-
         $('.category_s').on('click', function () {
             isa = $('.classes_page').is(":hidden") ? true : false;
             $('.empty').hide();
@@ -659,7 +674,6 @@ $(document).ready(function () {
                 $('.search_nav li').removeClass('cgengebg');
             }
         });
-
         $('.search_elect .checked_all').on('click', function () {
             $(this).addClass('sh_e');
             $('.remove_all').removeClass('sh_e')
@@ -677,6 +691,24 @@ $(document).ready(function () {
         });
         $('.lining_list li').on('click', function () {
             $(this).children("i").toggle();
+                if (is_ary.indexOf(clearSpace($(this).text())) == -1) {
+                   is_ary.push(clearSpace($(this).text()));
+            }else {
+                 for (var i=0;i<is_ary.length;i++){
+                     if(is_ary[i]== clearSpace($(this).text())){
+                         is_ary.splice(i,1);
+                     }
+                 }
+
+                }
+            if(is_ary.length){
+                $('.search_icon')[0].innerHTML='';
+                $('.search_icon').html('确定');
+            }else {
+                $('.search_icon')[0].innerHTML='';
+                $('.search_icon').html('筛选');
+            }
+
         });
         $('.purpose_page .checked_all').on('click', function () {
             $('.purpose_list').find('i').show();
@@ -721,7 +753,6 @@ $(document).ready(function () {
             }
             return collectAry;
         }
-
         getcollStor();
         function setCollect(e) {
             var inforAry = JSON.parse(localStorage.getItem('infor'));
@@ -759,8 +790,6 @@ $(document).ready(function () {
             }
             getColl();
         }
-
-
 //收藏页 数据绑定
         bindCollect();
         function bindCollect(data) {
@@ -817,8 +846,8 @@ $(document).ready(function () {
                     $(this).parent().parent().remove();
                     isColl();
                     getColl();
-                    return;
                     event.stopPropagation();
+                    return;
                 }
             }
         });
@@ -857,12 +886,42 @@ $(document).ready(function () {
         }
 
         getColl();
+        //layout页面；
+        $('.p_5').on('tap',function () {
+            $('.P5map').show();
+            $('.p5_rotL').show();
+            $('.box_img').hide();
+            layout.refresh();
+            $('.p5_rotL').css({'width':"100%","height":"100%"})
+        })
+
+        $(".p5_rot img").on('doubletap',function(){
+            $('.P5map').hide();
+            $('.p5_rot').hide();
+            $('.box_img').show();
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     }
 
-})
-//点击切换分页
+});
 
 
 

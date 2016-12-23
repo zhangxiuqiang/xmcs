@@ -318,7 +318,18 @@
 
 
 
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+    try {
+        function hengshuping() {
+            if (window.orientation == 90 || window.orientation == -90) {
+                window.location.reload();
+            } else if (window.orientation == 0 || window.orientation == 180) {
+                window.location.reload();
+            }
+        }
+    } catch (e) {
 
+    }
 
 
 

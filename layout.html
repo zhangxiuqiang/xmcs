@@ -11,6 +11,7 @@
     <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/iscroll-probe.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/mui.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
     <title>Title</title>
     <script type="text/javascript" charset="utf-8">
@@ -29,7 +30,7 @@
                 <div id="layout">
                     <div class="layout_imgs">
                         <div class="shade"></div>
-                       <div class="box_img">
+                        <div class="box_img">
                            <img src="img/one.png" alt="">
                            <div class="p_5"></div>
                            <div class="p_6"></div>
@@ -47,6 +48,14 @@
             </div>
         </div>
     </div>
+
+    <div class="P5map" >
+        <img src="img/IMG_9122.JPG" alt="">
+    </div>
+
+    <div class="p5_rot">
+        <img src="img/IMG_9122.JPG" alt="">
+    </div>
 </div>
 <script charset="UTF-8" type="text/javascript">
     ~function (desW) {
@@ -59,24 +68,33 @@
         }
         document.documentElement.style.fontSize = n * 100 + "px";
     }(750);
-
-//    $('.swiper-container').on('touchstart',function (e) {
-//        var touch = e.originalEvent,
-//                startX = touch.changedTouches[0].pageX;
-//        $('.swiper-container').on('touchmove', function (e) {
-//            e.preventDefault();
-//            touch = e.originalEvent.touches[0] ||
-//                    e.originalEvent.changedTouches[0];
-//        }).on("touchend",function () {
-//            e.preventDefault();
-//            if (touch.pageX - startX > 100) {
-//                $(".swiper-container").off('touchmove');
-//                window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
-//                e.preventDefault();
-//            }
-//        })
-//    });
-
+        $('.swiper-container').on('touchstart',function (e) {
+        var touch = e.originalEvent,
+                startX = touch.changedTouches[0].pageX;
+        $('.swiper-container').on('touchmove', function (e) {
+            e.preventDefault();
+            touch = e.originalEvent.touches[0] ||
+                    e.originalEvent.changedTouches[0];
+        }).on("touchend",function () {
+            e.preventDefault();
+            if (touch.pageX - startX > 100) {
+                $(".swiper-container").off('touchmove');
+                window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
+                e.preventDefault();
+            }
+        })
+    });
+    mui.init({
+        gestureConfig:{
+            tap: true, //默认为true
+            doubletap: true, //默认为false
+            longtap: true, //默认为false
+            swipe: true, //默认为true
+            drag: true, //默认为true
+            hold:false,//默认为false，不监听
+            release:false//默认为false，不监听
+        }
+    });
     var swiper = new Swiper(".swiper-container", {
         direction: "horizontal",
         allowSwipeToNext: false,
@@ -84,6 +102,21 @@
         observer: true,
         threshold: 100
     });
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+
+    try {
+        function hengshuping() {
+            if (window.orientation == 90 ) {
+                $('.P5map').hide();
+                $('.p5_rot').show();
+            } else if ( window.orientation == -90) {
+                $('.P5map').hide();
+                $('.p5_rot').show();
+            }
+        }
+    } catch (e) {
+
+    }
 </script>
 </body>
 </html>
