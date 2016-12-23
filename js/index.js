@@ -879,10 +879,8 @@ $(document).ready(function () {
         //layout页面；
         $('.p_5').on('tap',function () {
             $('.P5map').show();
-            $('.p5_rotL').show();
             $('.box_img').hide();
             layout.refresh();
-            $('.p5_rotL').css({'width':"100%","height":"100%"})
         })
         $('.P5map').on('tap',function () {
             $('.P5map').hide();

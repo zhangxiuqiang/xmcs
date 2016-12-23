@@ -14,12 +14,6 @@
     <script charset="UTF-8" type="text/javascript" src="js/mui.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
     <title>Title</title>
-    <script type="text/javascript" charset="utf-8">
-        var layout;
-        function loaded() {
-            layout= new IScroll('#layout-page', {freeScroll: true, click: true});
-        }
-    </script>
     <script src="js/index.js"></script>
 </head>
 <body onload="loaded()">
@@ -58,6 +52,11 @@
     </div>
 </div>
 <script charset="UTF-8" type="text/javascript">
+    var layout;
+    function loaded() {
+        layout= new IScroll('#layout-page', {freeScroll: true, click: true});
+
+    }
     ~function (desW) {
         var winW = document.documentElement.clientWidth,
                 oMain = $(".swiper-container")[0],
@@ -103,18 +102,24 @@
         threshold: 100
     });
     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
-
+    var fllg=false;
     try {
         function hengshuping() {
-            if (window.orientation == 90 ) {
-                $('.P5map').hide();
-                $('.p5_rot').show();
-            } else if ( window.orientation == -90) {
-                $('.P5map').hide();
-                $('.p5_rot').show();
-            }else {
-                $('.P5map').show();
-                $('.p5_rot').hide();
+            fllg=!$('.P5map').is(":hiddeb");
+            if(fllg){
+                if (window.orientation == 90 ) {
+                    $('.P5map').hide();
+                    $('.p5_rot').show();
+                } else if ( window.orientation == -90) {
+                    $('.P5map').hide();
+                    $('.p5_rot').show();
+                }else {
+                    if(!$('.p5_rot').is(':hideen')){
+                        $('.P5map').show();
+                        $('.p5_rot').hide();
+                        layout.refresh();
+                    }
+                }
             }
         }
     } catch (e) {
