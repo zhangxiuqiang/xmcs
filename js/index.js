@@ -885,6 +885,7 @@ $(document).ready(function () {
         $('.P5map').on('tap',function () {
             $('.P5map').hide();
             $('.p5_rot').hide();
+            $('.box_img').show();
         });
         $(".p5_rot img").on('doubletap',function(){
             $('.P5map').hide();
