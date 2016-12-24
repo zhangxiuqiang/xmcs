@@ -105,16 +105,18 @@
     var fllg=false;
     try {
         function hengshuping() {
-            fllg=!$('.P5map').is(":hiddeb");
+            fllg=!$('.P5map').is(":hidden");
             if(fllg){
                 if (window.orientation == 90 ) {
                     $('.P5map').hide();
                     $('.p5_rot').show();
+                    layout.refresh();
                 } else if ( window.orientation == -90) {
                     $('.P5map').hide();
                     $('.p5_rot').show();
+                    layout.refresh();
                 }else {
-                    if(!$('.p5_rot').is(':hideen')){
+                    if(!$('.p5_rot').is(':hidden')){
                         $('.P5map').show();
                         $('.p5_rot').hide();
                         layout.refresh();

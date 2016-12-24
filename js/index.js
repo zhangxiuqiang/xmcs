@@ -62,11 +62,9 @@ $(document).ready(function () {
         var str2 = "", isa, isb, isc, isd, flag = false, total = null, seaData = null, Sj;
         var val = null;
         var height = null;
-        var liheight = null;
         var loc_history = [];
         var collectAry = [];
         var _Array = [];
-        var arr_1 = [], arr_2 = [], arr_3 = [];
         var _arr = [];
         var is_ary = [];
         var flg = 1;
@@ -95,9 +93,9 @@ $(document).ready(function () {
                 if (xhr.readyState === 4 && /^2\d{2}$/.test(xhr.status)) {
                     seaData = JSON.parse(xhr.responseText)
                 }
-            }
-            xml.send()
-            xhr.send()
+            };
+            xml.send();
+            xhr.send();
         }
 
         getData();
@@ -156,7 +154,7 @@ $(document).ready(function () {
                 str += '</div>';
                 str += '<div class="color-block"></div>';
                 str += '</div>';
-                str += '</li>'
+                str += '</li>';
             }
             $('.infor_list').append(str);
             $('.exh_infor_li').find('.exh_infor_li_icon').addClass("chenge");
@@ -190,14 +188,14 @@ $(document).ready(function () {
         $('.empty').on('click', function () {
             $('.empty').hide();
             bindHTML(data);
-        })
+        });
         function bindCategory() {
             var _str = '';
             for (var key in seaData) {
                 for (var _key in seaData[key]) {
-                    _str += '<p class="hisp"><b>' + _key + '</b></p>'
+                    _str += '<p class="hisp"><b>' + _key + '</b></p>';
                     for (var i = 0; i < seaData[key][_key].length; i++) {
-                        _str += ' <li> ' + seaData[key][_key][i] + ' <i></i></li>'
+                        _str += ' <li> ' + seaData[key][_key][i] + '<i></i></li>'
                     }
                 }
 
@@ -303,7 +301,7 @@ $(document).ready(function () {
         //  设置筛选界面
         Array.prototype.classPage = function () {
             var arr = JSON.parse(localStorage.getItem('infor'));
-            var reg = /^[0-9]\.[0-9][\u4E00-\u9FA5]+/
+            var reg = /^[0-9]\.[0-9][\u4E00-\u9FA5]+/;
             for (var n = 0; n < arr.length; n++) {
                 var curD = arr[n];
                 for (var i = 0; i < this.length; i++) {
@@ -319,7 +317,7 @@ $(document).ready(function () {
                 }
             }
             bindHTML(_arr);
-        }
+        };
         //搜索后再次点击重新绑定
       try {
           if (_arr.length) {
@@ -377,13 +375,13 @@ $(document).ready(function () {
                     }
                 }
             }
-        }
+        };
         $('.search_icon').on("click", function (event) {
             if($(this).text()=="确定"){
                 $('.search_icon')[0].innerHTML='';
                 $('.search_icon').html('筛选');
             }
-            flog = false
+            flog = false;
             $('.search_nav li').removeClass('cgengebg');
             var lin = $('.lining_list').find('i');
             var mat = $('.material').find('i');
@@ -655,7 +653,7 @@ $(document).ready(function () {
                 $('.category_s').find('span').removeClass('_chengeA').addClass('_chenge');
                 $('.use').find('span').removeClass('_chengeA').addClass('_chenge');
                 $('.gallery').find('span').removeClass('_chengeA').addClass('_chenge');
-                $('.search_nav li').removeClass('cgengebg')
+                $('.search_nav li').removeClass('cgengebg');
                 $(this).addClass('cgengebg');
             } else {
                 $('.country_pages').hide();
@@ -666,13 +664,13 @@ $(document).ready(function () {
         });
         $('.search_elect .checked_all').on('click', function () {
             $(this).addClass('sh_e');
-            $('.remove_all').removeClass('sh_e')
+            $('.remove_all').removeClass('sh_e');
             $('.material_list').find('i').show();
             $('.lining_list').find('i').show();
         });
         $('.search_elect .remove_all').on('click', function () {
             $(this).addClass('sh_e')
-            $('.checked_all').removeClass('sh_e')
+            $('.checked_all').removeClass('sh_e');
             $('.material_list').find('i').hide();
             $('.lining_list').find('i').hide();
         });
@@ -818,7 +816,7 @@ $(document).ready(function () {
                 strc += '</li>';
             }
             $('.favorite_lists').append(strc);
-            strc = ''
+            strc = '';
             return;
         }
 
@@ -881,16 +879,40 @@ $(document).ready(function () {
             $('.P5map').show();
             $('.box_img').hide();
             layout.refresh();
-        })
-        $('.P5map').on('tap',function () {
+        });
+        $('.p_6').on('tap',function () {
+            $('.P5map').show();
+            $('.box_img').hide();
+            layout.refresh();
+        });
+        $('.p_7').on('tap',function () {
+            $('.P5map').show();
+            $('.box_img').hide();
+            layout.refresh();
+        });
+        $('.p_8').on('tap',function () {
+            $('.P5map').show();
+            $('.box_img').hide();
+            layout.refresh();
+        });
+
+        $('.P5map').on('doubletap',function () {
             $('.P5map').hide();
             $('.p5_rot').hide();
             $('.box_img').show();
+            layout.refresh();
+        }).on('tap',function () {
+            $('.P5map').hide();
+            $('.p5_rot').show();
+            $('.box_img').hide();
+            layout.refresh();
         });
+
         $(".p5_rot img").on('doubletap',function(){
             $('.P5map').hide();
             $('.p5_rot').hide();
             $('.box_img').show();
+            layout.refresh();
         })
 
 
