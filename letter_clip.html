@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" charset="utf-8" type="text/css" href="css/reset.min.css">
+    <link rel="stylesheet" charset="utf-8" type="text/css" href="css/index.css">
+    <link rel="stylesheet" charset="utf-8" type="text/css" href="css/swiper-3.4.0.min.css">
+    <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/iscroll-probe.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
+    <title>Title</title>
+    <script type="text/javascript" charset="utf-8">
+        var clip_1, clip_2;
+        function loaded() {
+            clip_1 = new IScroll('#clip_one', {freeScroll: true, click: true});
+            clip_2 = new IScroll('#clip_tow', {freeScroll: true, click: true});
+        }
+    </script>
+</head>
+
+<body onload="loaded()">
+<div class="swiper-container letter_clip">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide _clip">
+            <div class="clip_nav clearfloat">
+                <div class="clip_nav_l"><b>3月16日（周三）</b></div>
+                <div class="clip_nav_r"><b>3月16日（周四）</b></div>
+            </div>
+            <div id="clip_one">
+                <div id="clip_1">
+                    <div class="clip_page">
+                        <div class="back">
+                              <div class=" qr_code">
+                              </div>
+                              <ul class="cli_box">
+                                <li class="cli_list clearfloat">
+                                     <span class="cli_l">
+                                         <b>时间</b>
+                                     </span>
+                                    <span class="cli_r">
+                                         11:00 - 12:00
+                                     </span>
+                                </li>
+                                <li class="cli_list clearfloat">
+                                     <span class="cli_l">
+                                         <b>主题/讲座简介</b>
+                                     </span>
+                                    <span class="cli_r">
+                                         简介:介绍2017春夏主题，色彩、纱线及面料的流行趋势
+                                     </span>
+                                </li>
+                                <li class="cli_list clearfloat">
+                                     <span class="cli_l">
+                                         <b>演讲人/主讲公司</b>
+                                     </span>
+                                    <span class="cli_r">
+                                         Laurent Le Mouel,<br>
+                                         NellyRodi Agency创作总监,<br>
+                                         Micjael Bonzom,<br>
+                                         Nellyibajhxjsn<br>
+                                         女装服饰工作室经理<br>
+                                     </span>
+                                </li>
+                                <li class="cli_list clearfloat">
+                                     <span class="cli_l">
+                                         <b>语言</b>
+                                     </span>
+                                    <span class="cli_r">
+                                         英语/普通话
+                                     </span>
+                                </li>
+                                <li class="cli_list clearfloat">
+                                     <span class="cli_l">
+                                         <b>会议室</b>
+                                     </span>
+                                    <span class="cli_r">
+                                         M7-02
+                                     </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-slide">
+            <div class="clip_nav clearfloat">
+                <div class="clip_nav_l"><b>3月16日（周三）</b></div>
+                <div class="clip_nav_r"><b>3月16日（周四）</b></div>
+            </div>
+            <div id="clip_tow">
+                <div id="clip_2">
+                    <div class="clip_page2">
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script charset="UTF-8" type="text/javascript">
+    ~function (desW) {
+        var winW = document.documentElement.clientWidth,
+                oMain = $(".letter_clip")[0],
+                n = winW / desW;
+        if (winW > desW) {
+            oMain.style.width = desW + "px";
+            return;
+        }
+        document.documentElement.style.fontSize = n * 100 + "px";
+    }(750);
+    var mysper = new Swiper(".letter_clip", {
+        direction: "horizontal",
+        observer: true,
+        threshold: 100,
+        onTransitionStart: function (swiper) {
+            if(swiper.activeIndex==0){
+                $('.clip_nav_l').css('background',"#21b7cf").css('color',"#fff");
+                $('.clip_nav_r').css('background',"").css('color',"#21b7cf");
+                mysper.unlockSwipeToNext();
+            }else {
+                $('.clip_nav_l').css('background',"").css('color',"#21b7cf");
+                $('.clip_nav_r').css('background',"#21b7cf").css('color',"#fff");
+                mysper.lockSwipeToNext();
+
+            }
+        }
+    });
+    $('._clip').on('touchstart',function (e) {
+        var touch = e.originalEvent,
+                startX = touch.changedTouches[0].pageX;
+        $('._clip').on('touchmove', function (e) {
+            e.preventDefault();
+            touch = e.originalEvent.touches[0] ||
+                    e.originalEvent.changedTouches[0];
+        }).on("touchend",function () {
+            e.preventDefault();
+            if (touch.pageX - startX > 200) {
+                $("._clip").off('touchmove');
+                window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
+                e.preventDefault();
+            }
+        })
+    });
+
+    $('.clip_nav_l').on('click',function () {
+        mysper.slideTo(0, 300, false);
+        $('.clip_nav_l').css('background',"#21b7cf").css('color',"#fff");
+        $('.clip_nav_r').css('background',"").css('color',"#21b7cf");
+    }) .css('background',"#21b7cf");
+    $('.clip_nav_r').on('click',function () {
+        mysper.slideTo(1, 300, false);
+        $('.clip_nav_l').css('background',"").css('color',"#21b7cf");
+        $('.clip_nav_r').css('background',"#21b7cf").css('color',"#fff");
+    });
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
