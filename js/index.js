@@ -167,6 +167,10 @@ $(document).ready(function () {
                 setCollect(tmp);
                 event.stopPropagation();
             });
+            $('.oppen').on('click',function (event) {
+                window.location = "https://zhangxiuqiang.github.io/xmcs/display.html";
+                event.stopPropagation();
+            });
             $('.lining_list').find('i').hide();
             $('.material').find('i').hide();
             $('.exhibition_lists').find('i').hide();
@@ -928,7 +932,7 @@ $(document).ready(function () {
         if(isWeiXin()) {
 
         } else {
-            //alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+            alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
             var opened = window.open('about:blank', '_self');
             opened.opener = null;
             opened.close();

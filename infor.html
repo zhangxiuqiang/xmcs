@@ -26,7 +26,8 @@
             var CY , OH;
             $('.infor_list').on('click', '.exh_infor_li', function (event) {
                 CY =$('#wrapper')[0].clientHeight;
-                myScroll.scrollToElement(this, 0, 0, 0, true)
+                myScroll.scrollToElement(this, 0, 0, 0, IScroll.utils.ease.elastic)
+
             })
         }
 
