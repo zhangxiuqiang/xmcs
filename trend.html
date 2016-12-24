@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/index.css">
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/swiper-3.4.0.min.css">
+    <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script charset="utf-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/iscroll-probe.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var trend1,trend2;
+        function loaded() {
+            trend1 = new IScroll('#trend_pages_1', {freeScroll: true, click: true});
+            trend2 = new IScroll('#trend_pages_2', {freeScroll: true, click: true});
+        }
+    </script>
+    <title>intertextite</title>
+    <link rel="stylesheet" href="css/index.css">
+    <style>
+        body{
+            position: relative;
+        }
+    </style>
+</head>
+<body onload="loaded()">
+    <div class="swiper-container post">
+        <div class="swiper-wrapper">
+            <div class="trend_nav">
+                <div class="nav_left">
+                    2017年春夏流行趋势指南
+                </div>
+                <div class="nav_right">
+                    2017年春夏流行趋势指南
+                </div>
+            </div>
+            <div class="swiper-slide _trend">
+                <div id="trend_pages_1">
+                    <div id="trend_1">
+                        <div class="trend_one">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="trend_nav">
+                    <div class="nav_left">
+                        2017年春夏流行趋势指南
+                    </div>
+                    <div class="nav_right">
+                        2017年春夏流行趋势指南
+                    </div>
+                </div>
+                <div id="trend_pages_2">
+                    <div id="trend_2">
+                        <div class="trend_tow">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                            <img src="img/2016-11-24_184812.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script charset="utf-8" type="text/javascript">
+    ~function (desW) {
+        var winW = document.documentElement.clientWidth,
+                oMain = $(".swiper-container")[0],
+                n = winW / desW;
+        if (winW > desW) {
+            oMain.style.width = desW + "px";
+            return;
+        }
+        document.documentElement.style.fontSize = n * 100 + "px";
+    }(750);
+    var myswiper = new Swiper(".swiper-container", {
+        direction: "horizontal",
+        observer: true,
+        threshold: 100,
+        onSlideChangeEnd:function(swiper){
+           if(swiper.activeIndex==0){
+               $('.nav_left').css('background',"#118be3").css('color',"#fff");
+               $('.nav_right').css('background',"#fff").css('color',"#118be3");
+               myswiper.unlockSwipeToNext();
+
+           }else {
+               $('.nav_right').css('background',"#118be3").css('color',"#fff");
+               $('.nav_left').css('background',"#fff").css('color',"#118be3");
+               myswiper.lockSwipeToNext();
+           }
+        }
+    });
+     $('._trend').on('touchstart',function (e) {
+        var touch = e.originalEvent,
+                startX = touch.changedTouches[0].pageX;
+        $('._trend').on('touchmove', function (e) {
+            e.preventDefault();
+            touch = e.originalEvent.touches[0] ||
+                    e.originalEvent.changedTouches[0];
+        }).on("touchend",function () {
+            e.preventDefault();
+            if (touch.pageX - startX > 200) {
+                $("._trend").off('touchmove');
+                window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
+                e.preventDefault();
+            }
+        })
+    });
+     $('.nav_left').on('click',function () {
+         myswiper.slideTo(0, 300, false);
+         $('.nav_left').css('background',"#118be3").css('color',"#fff");
+         $('.nav_right').css('background',"#fff").css('color',"#118be3");
+
+    });
+     $('.nav_right').on('click',function () {
+         myswiper.slideTo(1, 300, false);
+         $('.nav_right').css('background',"#118be3").css('color',"#fff");
+         $('.nav_left').css('background',"#fff").css('color',"#118be3");
+
+    })
+    window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+    try {
+        function hengshuping() {
+            if (window.orientation == 90 || window.orientation == -90) {
+                window.location.reload();
+            } else if (window.orientation == 0 || window.orientation == 180) {
+                window.location.reload();
+            }
+        }
+    } catch (e) {
+
+    }
+</script>
+</body>
+</html>

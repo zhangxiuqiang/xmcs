@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/index.css">
+    <link rel="stylesheet" type="text/css" charset="UTF-8" href="css/swiper-3.4.0.min.css">
+    <script charset="utf-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/iscroll-probe.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        var myScroll8;
+        function loaded() {
+            myScroll8 = new IScroll('#int_pages', {freeScroll: true, click: true,probeType: 3});
+            var _Y=$(document.body)[0].clientHeight;
+            $(".footer").css('display','none');
+                myScroll8.on('scroll',function () {
+                    var  Y = $('._y').offset().top;
+                    var  H = $('._y').height();
+                    var  _H = $('.footer').height();
+                    myScroll8.y
+                    if(H+Y<_Y){
+                        var curH=_Y-Y-H;
+                        $(".footer").slideDown(2000);
+                    }else{
+                        $(".footer").slideUp(300);
+                    }
+                })
+            }
+        window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
+        try {
+            function hengshuping() {
+                if (window.orientation == 90 || window.orientation == -90) {
+                    window.location.reload();
+                } else if (window.orientation == 0 || window.orientation == 180) {
+                    window.location.reload();
+                }
+            }
+        } catch (e) {}
+    </script>
+    <title>intertextite</title>
+</head>
+<body onload="loaded()">
+<section id="oMain">
+    <div id="int_pages">
+        <div id="int_page">
+            <div class="home-page" id="home-page">
+                <div class="logo">
+                </div>
+                <div class="list-pages">
+                    <ul class="list-page clearfloat">
+                        <li class="list-page-li font" id="infor_list">
+                            参展信息列表
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="list-page-li font">
+                            展商收藏
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="list-page-li font">
+                            流行趋势
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="list-page-li font">
+                            综合信息
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="list-page-li font">
+                            活动会日程
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="list-page-li font">
+                            场馆布局
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="list-page-li font">
+                            快速分享
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                        <li class="list-page-li font _y">
+                            我的票夹
+                            <span></span>
+                            <i class="icon"></i>
+                        </li>
+                    </ul>
+                    <div class="footer">
+                         <p>  Copyright@ 2017 intertextile Shanghai apparel fabrics </p>
+                        <p>Powered by SoSee</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script charset="utf-8" type="text/javascript">
+    ~function (desW) {
+        var winW = document.documentElement.clientWidth,
+                oMain = $("#oMain")[0],
+                n = winW / desW;
+        if (winW > desW) {
+            oMain.style.width = desW + "px";
+            return;
+        }
+        document.documentElement.style.fontSize = n * 100 + "px";
+    }(750);
+</script>
+</body>
+</html>
