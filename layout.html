@@ -25,12 +25,12 @@
                     <div class="layout_imgs">
                         <div class="shade"></div>
                         <div class="box_img">
-                           <img src="img/one.png" alt="">
-                           <div class="p_5"></div>
-                           <div class="p_6"></div>
-                           <div class="p_7"></div>
-                           <div class="p_8"></div>
-                       </div>
+                            <img src="img/one.png" alt="">
+                            <div class="p_5"></div>
+                            <div class="p_6"></div>
+                            <div class="p_7"></div>
+                            <div class="p_8"></div>
+                        </div>
                         <div class="box_img">
                             <img src="img/tow.png" alt="">
                         </div>
@@ -43,10 +43,10 @@
         </div>
     </div>
 
-    <div class="P5map" >
-       <div class="shad">
-           <p>单击可查看大图</p>
-       </div>
+    <div class="P5map">
+        <div class="shad">
+            <p>单击可查看大图</p>
+        </div>
         <img src="img/IMG_9122.JPG" alt="">
     </div>
 
@@ -59,7 +59,7 @@
 <script charset="UTF-8" type="text/javascript">
     var layout;
     function loaded() {
-        layout= new IScroll('#layout-page', {freeScroll: true, click: true});
+        layout = new IScroll('#layout-page', {freeScroll: true, click: true});
 
     }
     ~function (desW) {
@@ -72,37 +72,38 @@
         }
         document.documentElement.style.fontSize = n * 100 + "px";
     }(750);
-        $('.swiper-container').on('touchstart',function (e) {
+    $('.container').on('touchstart', function (e) {
         var touch = e.originalEvent,
                 startX = touch.changedTouches[0].pageX;
-        $('.swiper-container').on('touchmove', function (e) {
-            e.preventDefault();
+        $('.container').on('touchmove', function (e) {
+
             touch = e.originalEvent.touches[0] ||
                     e.originalEvent.changedTouches[0];
-        }).on("touchend",function () {
             e.preventDefault();
-            if (touch.pageX - startX > 100) {
-                $(".swiper-container").off('touchmove');
+        }).on("touchend", function () {
+            if (touch.pageX - startX > 200) {
                 window.location = "https://zhangxiuqiang.github.io/xmcs/index.html";
+                $('.container').off('touchmove');
+                e.stopPropagation();
                 e.preventDefault();
             }
-        })
+        });
     });
     mui.init({
-        gestureConfig:{
+        gestureConfig: {
             tap: true, //默认为true
             doubletap: true, //默认为false
             longtap: true, //默认为false
             swipe: true, //默认为true
             drag: true, //默认为true
-            hold:false,//默认为false，不监听
-            release:false//默认为false，不监听
+            hold: false,//默认为false，不监听
+            release: false//默认为false，不监听
         }
     });
-    var CW=document.body.clientWidth;
-    var CH=document.body.clientHeight;
-    console.log(CH,CW);
-    $('.p5_rot').css({'width':CH,'height':CW});
+    var CW = document.body.clientWidth;
+    var CH = document.body.clientHeight;
+    console.log(CH, CW);
+    $('.p5_rot').css({'width': CH, 'height': CW});
     var swiper = new Swiper(".swiper-container", {
         direction: "horizontal",
         allowSwipeToNext: false,
@@ -111,25 +112,28 @@
         threshold: 100
     });
     window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", hengshuping, false);
-    var fllg=false;
+    var fllg = false;
     try {
         function hengshuping() {
-            fllg=$('.P5map').is(":hidden");
-            if(!fllg){
-                if (window.orientation == 90 ) {
+            fllg = $('.P5map').is(":hidden");
+
+            if (window.orientation == 90) {
+                if (!fllg) {
                     $('.P5map').hide();
                     $('.p5_rot').show();
                     layout.refresh();
-                } else if ( window.orientation == -90) {
+                }
+            } else if (window.orientation == -90) {
+                if (!fllg) {
                     $('.P5map').hide();
                     $('.p5_rot').show();
                     layout.refresh();
-                }else {
-                    if(!$('.p5_rot').is(':hidden')){
-                        $('.P5map').show();
-                        $('.p5_rot').hide();
-                        layout.refresh();
-                    }
+                }
+            } else {
+                if (!$('.p5_rot').is(':hidden')) {
+                    $('.P5map').show();
+                    $('.p5_rot').hide();
+                    layout.refresh();
                 }
             }
         }
