@@ -927,25 +927,25 @@ $(document).ready(function () {
         });
 
 
-
-
-        if(isWeiXin()) {
-
-        } else {
-            alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
-            var opened = window.open('about:blank', '_self');
-            opened.opener = null;
-            opened.close();
-        }
-
-    function isWeiXin() {
-        var ua = window.navigator.userAgent.toLowerCase();
-        if(ua.match(/MicroMessenger/i) == 'micromessenger') {
-            return true;
-        } else {
-            return false;
-        }
-    }
+    //
+    //
+    //     if(isWeiXin()) {
+    //
+    //     } else {
+    //         alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+    //         var opened = window.open('about:blank', '_self');
+    //         opened.opener = null;
+    //         opened.close();
+    //     }
+    //
+    // function isWeiXin() {
+    //     var ua = window.navigator.userAgent.toLowerCase();
+    //     if(ua.match(/MicroMessenger/i) == 'micromessenger') {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
 
 
