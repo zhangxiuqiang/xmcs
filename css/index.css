@@ -1383,7 +1383,7 @@ html {
     position: absolute;
     width: 100%;
     height: 35px;
-    line-height: 35x;
+    line-height: 35px;
     background: #fff;
     top: 0;
     left: 0;
@@ -1764,6 +1764,21 @@ html {
     height: 6rem;
 
 }
+.P5map .shad,.sha_d{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.3);
+    position: absolute;
+    z-index: 200;
+    left: 0;
+    top: 0;
+}
+.P5map .shad p,.sha_d p{
+   color: #fff;
+    font-size: 0.4rem;
+    text-align: center;
+    line-height: 5rem;
+}
 .p5_rotL {
     transform: rotate(90deg);
     -ms-transform: rotate(90deg); /* IE 9 */
@@ -1781,22 +1796,20 @@ html {
 }
 .p5_rot {
     position: absolute;
-    left: 0;
+    left: 100%;
     top: 0;
-    width: 100%;
-    height: 100%;
     display: none;
     z-index: 100;
+    background: url("../img/IMG_9122.JPG")  no-repeat;
+    background-size: 100%;
+    transform-origin:0%  0%;
+    transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
 }
-.p5_rot img{
-    width: 100%;
-    height: 100%;
-    /*transform: rotate(-90deg);*/
-    /*-ms-transform: rotate(-90deg);*/
-    /*-moz-transform: rotate(-90deg);*/
-    /*-webkit-transform: rotate(-90deg);*/
-    /*-o-transform: rotate(-90deg);*/
-}
+
 
 
 

@@ -44,11 +44,16 @@
     </div>
 
     <div class="P5map" >
+       <div class="shad">
+           <p>单击可查看大图</p>
+       </div>
         <img src="img/IMG_9122.JPG" alt="">
     </div>
 
     <div class="p5_rot">
-        <img src="img/IMG_9122.JPG" alt="">
+        <div class="sha_d">
+            <p>双击可返回</p>
+        </div>
     </div>
 </div>
 <script charset="UTF-8" type="text/javascript">
@@ -94,6 +99,10 @@
             release:false//默认为false，不监听
         }
     });
+    var CW=document.body.clientWidth;
+    var CH=document.body.clientHeight;
+    console.log(CH,CW);
+    $('.p5_rot').css({'width':CH,'height':CW});
     var swiper = new Swiper(".swiper-container", {
         direction: "horizontal",
         allowSwipeToNext: false,
@@ -105,8 +114,8 @@
     var fllg=false;
     try {
         function hengshuping() {
-            fllg=!$('.P5map').is(":hidden");
-            if(fllg){
+            fllg=$('.P5map').is(":hidden");
+            if(!fllg){
                 if (window.orientation == 90 ) {
                     $('.P5map').hide();
                     $('.p5_rot').show();
@@ -125,7 +134,6 @@
             }
         }
     } catch (e) {
-
     }
 </script>
 </body>

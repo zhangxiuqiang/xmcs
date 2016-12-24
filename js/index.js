@@ -878,48 +878,70 @@ $(document).ready(function () {
         $('.p_5').on('tap',function () {
             $('.P5map').show();
             $('.box_img').hide();
+            $('.shad').show();
             layout.refresh();
         });
         $('.p_6').on('tap',function () {
             $('.P5map').show();
             $('.box_img').hide();
+            $('.shad').show();
             layout.refresh();
         });
         $('.p_7').on('tap',function () {
             $('.P5map').show();
             $('.box_img').hide();
+            $('.shad').show();
             layout.refresh();
         });
         $('.p_8').on('tap',function () {
             $('.P5map').show();
+            $('.shad').show();
             $('.box_img').hide();
             layout.refresh();
         });
-
-        $('.P5map').on('doubletap',function () {
-            $('.P5map').hide();
-            $('.p5_rot').hide();
-            $('.box_img').show();
+        $('.P5map').on('tap','.shad',function (event) {
+           $('.shad').hide();
+            event.stopPropagation();
             layout.refresh();
-        }).on('tap',function () {
+        });
+        $('.P5map').on('tap',function () {
             $('.P5map').hide();
             $('.p5_rot').show();
+            $('.sha_d').show();
             $('.box_img').hide();
             layout.refresh();
         });
 
-        $(".p5_rot img").on('doubletap',function(){
+        $(".p5_rot").on('doubletap',function(){
             $('.P5map').hide();
             $('.p5_rot').hide();
             $('.box_img').show();
             layout.refresh();
-        })
+        }).on('tap','.sha_d',function(){
+
+            $('.sha_d').hide();
+        });
 
 
 
 
+        if(isWeiXin()) {
 
+        } else {
+            //alert('已禁止本次访问：您必须使用微信内置浏览器访问本页面！');
+            var opened = window.open('about:blank', '_self');
+            opened.opener = null;
+            opened.close();
+        }
 
+    function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if(ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
 
