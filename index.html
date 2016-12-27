@@ -11,6 +11,8 @@
     <script charset="utf-8" type="text/javascript" src="js/swiper-3.4.0.min.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/iscroll-probe.js"></script>
     <script charset="UTF-8" type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+    <script charset="UTF-8" type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js "></script>
     <script charset="UTF-8" type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript" charset="utf-8">
         var myScroll8;
@@ -98,9 +100,7 @@
                          <p>  Copyright@ 2017 intertextile Shanghai apparel fabrics </p>
                         <p>Powered by SoSee</p>
                     </div>
-                    <div style="padding-left: 30px; margin-bottom: 8px; margin-top:5px; ">
-                        <div class="bshare-custom"><a title="分享到QQ空间" class="bshare-qzone"></a><a title="分享到新浪微博" class="bshare-sinaminiblog"></a><a title="分享到人人网" class="bshare-renren"></a><a title="分享到腾讯微博" class="bshare-qqmb"></a><a title="分享到网易微博" class="bshare-neteasemb"></a><a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a><span class="BSHARE_COUNT bshare-share-count">0</span></div><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=&amp;pophcol=2&amp;lang=zh"></script><script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-                    </div>
+                    <a href="" onclick="onMenuShareTimeline()" >dsadasdas</a>
                 </div>
             </div>
         </div>
@@ -118,6 +118,17 @@
         }
         document.documentElement.style.fontSize = n * 100 + "px";
     }(750);
+    wx.onMenuShareTimeline({
+        title: '方法士大夫', // 分享标题
+        link: 'www.baidu.com', // 分享链接
+        imgUrl: '', // 分享图标
+        success: function () {
+            // 用户确认分享后执行的回调函数
+        },
+        cancel: function () {
+            // 用户取消分享后执行的回调函数
+        }
+    });
 </script>
 </body>
 </html>
