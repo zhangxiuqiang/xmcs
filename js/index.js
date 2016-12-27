@@ -68,7 +68,7 @@ $(document).ready(function () {
                 }
             }
         });
-        var str2 = "", isa, isb, isc, isd, flag = false, total = null, seaData = null, Sj;
+        var str2 = "", isa, isb, isc, isd, flag = false, total = null, seaData = null, Sj, flg,flog, fg = true;
         var val = null;
         var height = null;
         var loc_history = [];
@@ -76,14 +76,11 @@ $(document).ready(function () {
         var _Array = [];
         var _arr = [];
         var is_ary = [];
-        var flg = 1;
         var data = [];
-        var fg = true;
-
         function getData() {
             var xml = new XMLHttpRequest, xhr = new XMLHttpRequest();
-            xml.open("get", "json/data.txt?=" + Math.random(), false);
-            xhr.open("get", "json/search.txt?=" + Math.random(), false);
+            xml.open("get", "./json/data.txt?=" + Math.random(), false);
+            xhr.open("get", "./json/search.txt?=" + Math.random(), false);
             xml.onreadystatechange = function () {
                 if (xml.readyState === 4 && /^2\d{2}$/.test(xml.status)) {
                     Sj = JSON.parse(xml.responseText);
@@ -105,7 +102,6 @@ $(document).ready(function () {
             xml.send();
             xhr.send()
         }
-
         getData();
         localStorage.setItem("infor", JSON.stringify(data));
         bindHTML(data);
@@ -202,7 +198,6 @@ $(document).ready(function () {
                 $(".empty").hide()
             }
         }
-
         $(".empty").on("click", function () {
             $(".empty").hide();
             bindHTML(data)
@@ -220,7 +215,6 @@ $(document).ready(function () {
             $(".lining_list").append(_str);
             _str = ""
         }
-
         function bindCount() {
             var Count = [];
             for (var i = 0; i < data.length; i++) {
@@ -236,7 +230,6 @@ $(document).ready(function () {
             $(".country_lists").append(strB);
             strB = ""
         }
-
         function bindGall() {
             var Gall = [], str_g = "";
             for (var p = 0; p < Sj.length; p++) {
@@ -255,7 +248,6 @@ $(document).ready(function () {
             $(".exhibition_lists").append(str_g);
             str_g = ""
         }
-
         bindGall();
         bindCount();
         bindCategory();
@@ -349,8 +341,7 @@ $(document).ready(function () {
                 $(".search_icon")[0].innerHTML = "";
                 $(".search_icon").html("筛选")
             }
-        } catch (e) {
-        }
+        } catch (e) {}
         function refreshInfor() {
             fg = true;
             var arrI = $(".lining_list").find("i");
@@ -365,7 +356,6 @@ $(document).ready(function () {
                 bindHTML(data)
             }
         }
-
         function bindPages(s) {
             var aryP = [];
             var regStr = eval("/" + s + "/");
@@ -392,8 +382,6 @@ $(document).ready(function () {
             }
             bindHTML(aryP)
         }
-
-        var flog;
         $.fn.screen = function () {
             if (this.length > 0) {
                 for (var l = 0; l < this.length; l++) {
@@ -568,31 +556,23 @@ $(document).ready(function () {
         });
         $(".exh_infor_li").find(".exh_infor_li_icon").addClass("chenge");
         $(".infor_list").on("click", ".exh_infor_li", function (event) {
+            flg = $(this).children(".particular_infor").css("display");
+            if(flg=="none"){
+                $(".exh_infor_li .particular_infor").hide();
+                $(this).children(".particular_infor").show();
+                $(".exh_infor_li").find(".exh_infor_li_icon").removeClass("chengeA").addClass("chenge");
+                $(this).find(".exh_infor_li_icon").removeClass("chenge").addClass("chengeA");
+                myScroll.scrollToElement($(this)[0],0);
+            }else {
+                $(".exh_infor_li .particular_infor").hide();
+                $(".exh_infor_li").find(".exh_infor_li_icon").removeClass("chengeA").addClass("chenge");
+                $(this).find(".exh_infor_li_icon").removeClass("chengeA").addClass("chenge");
+            }
 
-
-            $(".exh_infor_li .particular_infor").hide();
-            $(this).children(".particular_infor").show();
-            $(this).find(".exh_infor_li_icon").removeClass("chenge").addClass("chengeA");
-            $(this).on("click", function (event) {
-                $(this).children(".particular_infor").toggle();
-                flg = $(this).children(".particular_infor").css("display");
-                if (flg == "none") {
-                    $(".exh_infor_li").find(".exh_infor_li_icon").addClass("chenge").removeClass("chengeA")
-                } else {
-                    $(".exh_infor_li").find(".exh_infor_li_icon").addClass("chenge");
-                    $(this).find(".exh_infor_li_icon").removeClass("chenge").addClass("chengeA")
-                }
-                myScroll.refresh();
-                event.stopPropagation();
-                event.preventDefault();
-            });
             refresh();
             event.stopPropagation();
             event.preventDefault();
-
         });
-
-
         $(".category_s").find("span").addClass("_chenge");
         $(".use").find("span").addClass("_chenge");
         $(".gallery").find("span").addClass("_chenge");
@@ -846,7 +826,6 @@ $(document).ready(function () {
             }
             return collectAry
         }
-
         getcollStor();
         function setCollect(e) {
             var inforAry = JSON.parse(localStorage.getItem("infor"));
@@ -884,7 +863,6 @@ $(document).ready(function () {
             }
             getColl()
         }
-
         bindCollect();
         function bindCollect(data) {
             var coarr = getcollStor();
@@ -925,7 +903,6 @@ $(document).ready(function () {
             strc = "";
             return
         }
-
         $(".favorite_lists").on("click", ".delete_c", function (event) {
             myScroll7.refresh();
             var curId = $(this).parent().parent().attr("crmId");
@@ -951,7 +928,6 @@ $(document).ready(function () {
                 $(".no_collection").hide()
             }
         }
-
         function getColl() {
             var _arr = getcollStor();
             var idArr = [];
@@ -974,7 +950,6 @@ $(document).ready(function () {
                 $(".infor_list").find(".collect_icon").removeClass("collCheng").addClass("collChenge")
             }
         }
-
         getColl();
         $(".p_5").on("tap", function () {
             $(".P5map").show();
@@ -1020,9 +995,9 @@ $(document).ready(function () {
         }).on("tap", ".sha_d", function () {
             $(".sha_d").hide()
         });
-        if(isWeiXin()){}else{alert("已禁止本次访问：您必须使用微信内置浏览器访问本页面！");
-        var opened=window.open("about:blank","_self");opened.opener=null;opened.close()}
-        function isWeiXin(){var ua=window.navigator.userAgent.toLowerCase();
-        	if(ua.match(/MicroMessenger/i)=="micromessenger"){return true}else{return false}}
+        // if(isWeiXin()){}else{alert("已禁止本次访问：您必须使用微信内置浏览器访问本页面！");
+        // var opened=window.open("about:blank","_self");opened.opener=null;opened.close()}
+        // function isWeiXin(){var ua=window.navigator.userAgent.toLowerCase();
+        // 	if(ua.match(/MicroMessenger/i)=="micromessenger"){return true}else{return false}}
     }
 });
